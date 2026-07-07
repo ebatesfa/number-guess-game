@@ -5,10 +5,14 @@ let attempts= 5;
 
 let input= document.getElementById("guess");
 let checkBtn= document.getElementById("checkBtn");
+console.log(checkBtn);
 let message= document.getElementById("messages");
-let attemptsText=  document.getElementById("attempts");
+let attemptsText=document.getElementById("attempts");
+let restartBtn= document.getElementById("restartBtn");
+console.log("before event listener");
 
 checkBtn.addEventListener("click", function numberguess(){
+    console .log ("check button is clicked");
    attemptsText.textContent="you have left" + attempts +"attempts";
 if(Number(input.value)==secretNumber){
     message.textContent=" correct";
@@ -29,5 +33,23 @@ if(attempts==0){
 }
 
 } )
+
+
+restartBtn.addEventListener("click", function(){
+
+ secretNumber=Math.floor(Math.random()*20)+1;
+attempts= 5;
+input.value="";
+message.textContent="start guessing...";
+attemptsText.textContent= "you have  " + attempts +"  attempts";
+checkBtn.disabled=false;
+
+
+
+
+
+
+
+})
 
 
